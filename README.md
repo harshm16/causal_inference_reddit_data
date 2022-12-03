@@ -2,9 +2,9 @@ This repository contains the implementation for Causal Inference using Reddit da
 This work was done as a group project for Causal Inference (CS 520) at University of Illinois at Chicago, under Prof. Elena Zheleva.
 
 Team Members:
-Drishika Dey
-Supriya Chaudhary
-Madhumitha Rajarajan
+Drishika Dey,
+Supriya Chaudhary,
+Madhumitha Rajarajan,
 Harsh Mishra
 
 
