@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf version="1.2" xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance">
+  <graph defaultedgetype="directed" mode="static" name="">
+    <attributes class="edge" mode="static">
+      <attribute id="0" title="origin" type="string" />
+    </attributes>
+    <meta>
+      <creator>NetworkX 2.2</creator>
+      <lastmodified>27/11/2022</lastmodified>
+    </meta>
+    <nodes>
+      <node id="infected" label="infected" />
+      <node id="reddit_activity" label="reddit_activity" />
+      <node id="sentiment" label="sentiment" />
+      <node id="infected_new" label="infected_new" />
+      <node id="infected_perc_change" label="infected_perc_change" />
+      <node id="restriction" label="restriction" />
+      <node id="over_65" label="over_65" />
+      <node id="reddit_usage" label="reddit_usage" />
+      <node id="single_household" label="single_household" />
+      <node id="deaths" label="deaths" />
+      <node id="deaths_new" label="deaths_new" />
+      <node id="deaths_perc_change" label="deaths_perc_change" />
+    </nodes>
+    <edges>
+      <edge id="0" source="infected" target="sentiment" weight="0.31918062891095317">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="1" source="infected" target="infected_perc_change" weight="-1.2968977108505209">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="2" source="infected_new" target="infected" weight="3.1562656816367913">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="3" source="infected_new" target="reddit_activity" weight="3.981296014171426">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="4" source="infected_new" target="sentiment" weight="-7.21688700691273">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="5" source="infected_new" target="infected_perc_change" weight="9.359654958662627">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="6" source="infected_new" target="deaths_perc_change" weight="3.453857966928719">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="7" source="restriction" target="sentiment" weight="-41.180785314073574">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="8" source="over_65" target="infected" weight="0.4894696076655708">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="9" source="over_65" target="infected_perc_change" weight="-0.44608490782253574">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="10" source="over_65" target="deaths_perc_change" weight="-0.9016982894558399">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="11" source="reddit_usage" target="reddit_activity" weight="2.668027520003459">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="12" source="single_household" target="infected_perc_change" weight="0.7925038483658865">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="13" source="single_household" target="deaths_perc_change" weight="0.7057755967157998">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="14" source="deaths" target="infected" weight="29.990020698856">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="15" source="deaths" target="sentiment" weight="-26.79516033137511">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="16" source="deaths" target="infected_new" weight="-1.037420054091688">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="17" source="deaths" target="infected_perc_change" weight="30.575241249398896">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="18" source="deaths" target="deaths_perc_change" weight="-44.50972520309122">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="19" source="deaths_new" target="infected" weight="-15.419265542941268">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="20" source="deaths_new" target="reddit_activity" weight="-55.132673224020564">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="21" source="deaths_new" target="sentiment" weight="115.3207626009521">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="22" source="deaths_new" target="infected_new" weight="7.475782492284247">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="23" source="deaths_new" target="infected_perc_change" weight="-79.91033945211278">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="24" source="deaths_new" target="deaths" weight="7.065926402604177">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+      <edge id="25" source="deaths_new" target="deaths_perc_change" weight="354.0851272766244">
+        <attvalues>
+          <attvalue for="0" value="learned" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

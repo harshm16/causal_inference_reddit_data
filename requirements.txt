@@ -1,3 +1,7 @@
+#needs python 3.7
+#pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
+#cuda11.6
+
 networkx==2.2  # this needs to be less than 2.4
 causalnex==0.6.0
 pandas==0.24.0
@@ -9,3 +13,4 @@ transformers==2.5.1
 langdetect==1.0.8
 pandarallel==1.4.6
 tqdm==4.43.0
+

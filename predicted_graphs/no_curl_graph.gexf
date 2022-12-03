@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2022-11-28">
+    <creator>NetworkX 2.6.3</creator>
+  </meta>
+  <graph defaultedgetype="directed" mode="static" name="">
+    <nodes>
+      <node id="infected" label="infected" />
+      <node id="reddit_activity" label="reddit_activity" />
+      <node id="sentiment" label="sentiment" />
+      <node id="infected_new" label="infected_new" />
+      <node id="infected_perc_change" label="infected_perc_change" />
+      <node id="restriction" label="restriction" />
+      <node id="over_65" label="over_65" />
+      <node id="reddit_usage" label="reddit_usage" />
+      <node id="single_household" label="single_household" />
+      <node id="deaths" label="deaths" />
+      <node id="deaths_new" label="deaths_new" />
+      <node id="deaths_perc_change" label="deaths_perc_change" />
+    </nodes>
+    <edges>
+      <edge source="infected" target="sentiment" id="0" weight="-0.34920816760869383" />
+      <edge source="infected" target="infected_perc_change" id="1" weight="-1.6701758907799025" />
+      <edge source="infected_new" target="infected" id="2" weight="3.166250666981354" />
+      <edge source="infected_new" target="reddit_activity" id="3" weight="3.6936200790559104" />
+      <edge source="infected_new" target="sentiment" id="4" weight="-5.704414501908284" />
+      <edge source="infected_new" target="infected_perc_change" id="5" weight="9.573095862627074" />
+      <edge source="infected_new" target="deaths_perc_change" id="6" weight="1.9648300022622804" />
+      <edge source="restriction" target="reddit_activity" id="7" weight="2.119519418314538" />
+      <edge source="restriction" target="sentiment" id="8" weight="-27.39503300318446" />
+      <edge source="over_65" target="infected" id="9" weight="0.5055556522617879" />
+      <edge source="over_65" target="infected_perc_change" id="10" weight="-0.49375235849322746" />
+      <edge source="over_65" target="deaths_perc_change" id="11" weight="-0.5945541569205877" />
+      <edge source="reddit_usage" target="reddit_activity" id="12" weight="11.542239412853833" />
+      <edge source="single_household" target="infected" id="13" weight="-0.3173372245364746" />
+      <edge source="single_household" target="infected_perc_change" id="14" weight="1.1032439852354106" />
+      <edge source="single_household" target="deaths_perc_change" id="15" weight="0.6864390792013333" />
+      <edge source="deaths" target="infected" id="16" weight="30.133173716666825" />
+      <edge source="deaths" target="reddit_activity" id="17" weight="-10.34848760056016" />
+      <edge source="deaths" target="sentiment" id="18" weight="-2.855335446265621" />
+      <edge source="deaths" target="infected_perc_change" id="19" weight="41.17334250296795" />
+      <edge source="deaths" target="deaths_perc_change" id="20" weight="-34.157501390341835" />
+      <edge source="deaths_new" target="infected" id="21" weight="-17.051057484938553" />
+      <edge source="deaths_new" target="reddit_activity" id="22" weight="-27.429087651361503" />
+      <edge source="deaths_new" target="sentiment" id="23" weight="66.77131882143837" />
+      <edge source="deaths_new" target="infected_perc_change" id="24" weight="-59.178363657415275" />
+      <edge source="deaths_new" target="deaths_perc_change" id="25" weight="384.140234484116" />
+    </edges>
+  </graph>
+</gexf>

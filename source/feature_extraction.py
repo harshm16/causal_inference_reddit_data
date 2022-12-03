@@ -104,7 +104,7 @@ def gov_announcement(dataframe_to_be_formatted, country, left_and_right=1):
     '''
 
     dataframe_formatted = deepcopy(dataframe_to_be_formatted)
-    dataframe_formatted = dataframe_formatted.replace(dataframe_formatted, 0)
+    # dataframe_formatted = dataframe_formatted.replace(dataframe_formatted, 0)
     if country not in cf.restrictions.keys():
         return dataframe_formatted
     col_ind = np.where(
@@ -164,16 +164,18 @@ def get_feature_matrix(country_counts, covid, mode, country_list):
             right_index=True,
             left_on='date'
         )
+
+        
         merged.rename(columns={country: 'restriction'},
                       inplace=True)
 
         # add country stats
         merged['over_65'] = cf.over_65[country]
-        merged['twitter_usage'] = cf.twitter_usage[country]
+        merged['reddit_usage'] = cf.reddit_usage[country]
         merged['single_household'] = cf.single_household[country]
 
         # normalize
-        for c in ['twitter_activity', mode, '{}_new'.format(mode)]:
+        for c in ['reddit_activity', mode, '{}_new'.format(mode)]:
             merged[c] = merged[c] / cf.population[country]
 
         merged.sort_values(by=['date'], inplace=True)

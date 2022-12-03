@@ -77,58 +77,27 @@ def read_covid(data_path, columns='all'):
     return covid
 
 
-def read_tweets(tweets_path):
+def read_reddit_data(data_path):
     '''
-    read tweets data
+    read posts data
     '''
 
-    tweets = pd.read_csv(tweets_path)
-    tweets.drop_duplicates(inplace=True, subset='id')
+    posts = pd.read_csv(data_path)
+    posts.drop_duplicates(inplace=True, subset='id')
 
-    # shorten date and filter with date limits (see configs)
-    tweets['date'] = tweets['date'].str[0:10]
-    tweets = tweets[tweets['date'] >= cf.start_date]
-    tweets = tweets[tweets['date'] <= cf.end_date]
-
-    # format some columns
-    tweets.rename(columns=cf.tweet_column_shortener_dict, inplace=True)
-    tweets[['Lat', 'Long']] = np.round(tweets[['Lat', 'Long']], 4)
-
-    # create a new string column called 'Lat_Long' (below is faster than apply)
-    tweets['Lat_Long'] = tweets.Lat.astype(str).str.cat(
-                                            tweets.Long.astype(str), sep='_')
-
-    # add country to tweets data by latitude and longtitude mapping
-    infected = pd.read_csv(cf.INFECTED_PATH,
-                           usecols=['Lat', 'Long', 'Country/Region'])
-
-    # format some columns
-    infected.rename(columns={'Country/Region': 'Location'}, inplace=True)
-    infected[['Lat', 'Long']] = np.round(infected[['Lat', 'Long']], 4)
-
-    # create a new string column called 'Lat_Long'
-    infected['Lat_Long'] = infected.Lat.astype(str).str.cat(
-                                        infected.Long.astype(str), sep='_')
-    infected.drop(['Lat', 'Long'], axis=1, inplace=True)
-
-    # map location from Lat and Long
-    tweets['Location'] = tweets['Lat_Long'].map(dict(zip(infected['Lat_Long'],
-                                                infected['Location'])))
-
-    print('Tweets dataframe shape={}'.format(tweets.shape))
-    return tweets
+    return posts
 
 
-def add_missing_countries(tweets_df):
+def add_missing_countries(posts_df):
     '''
     Note: this functions work 'inplace'
     '''
 
-    print('{} tweets do not have country information!'.format(
-                                        tweets_df['Location'].isna().sum()))
+    print('{} posts do not have country information!'.format(
+                                        posts_df['Location'].isna().sum()))
 
-    # get tweets without a country info
-    no_country = tweets_df[tweets_df['Location'].isna()][
+    # get posts without a country info
+    no_country = posts_df[posts_df['Location'].isna()][
                                             ['Lat', 'Long']].drop_duplicates()
 
     # extract coordinates
@@ -142,17 +111,17 @@ def add_missing_countries(tweets_df):
     no_country['Lat_Long'] = no_country[['Lat', 'Long']].apply(
                                         lambda x: '_'.join(x.map(str)), axis=1)
 
-    # add mapped countries to the original tweets data
-    tweets_df.loc[tweets_df['Location'].isna(), 'Location'] = list(tweets_df[
-                            tweets_df['Location'].isna()]['Lat_Long'
+    # add mapped countries to the original posts data
+    posts_df.loc[posts_df['Location'].isna(), 'Location'] = list(posts_df[
+                            posts_df['Location'].isna()]['Lat_Long'
                                                           ].map(
                     dict(zip(
                           no_country['Lat_Long'], no_country['found_countries']
                                                     ))))
-    tweets_df.drop(['Lat_Long'], axis=1, inplace=True)
+    posts_df.drop(['Lat_Long'], axis=1, inplace=True)
 
-    print('{} tweets that do not have country information will be discarded!'
-          .format(tweets_df['Location'].isna().sum()))
-    tweets_df = tweets_df[~tweets_df['Location'].isna()]
+    print('{} posts that do not have country information will be discarded!'
+          .format(posts_df['Location'].isna().sum()))
+    posts_df = posts_df[~posts_df['Location'].isna()]
 
     return None
