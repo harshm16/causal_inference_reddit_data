@@ -14,5 +14,5 @@ The outline of the code base is borrowed from `causal_twitter_modeling_covid19 <
 
 ====================
 The implementations of Nocurl and Nofear were referred from the following links respectively:
-https://github.com/fishmoon1234/DAG-NoCurl
+https://github.com/fishmoon1234/DAG-NoCurl,
 https://github.com/skypea/DAG_No_Fear
